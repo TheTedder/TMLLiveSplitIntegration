@@ -1,0 +1,3 @@
+displayName = LiveSplit Integration
+author = Tedder
+version = 0.1
