@@ -1,3 +1,5 @@
 displayName = LiveSplit Integration
 author = Tedder
 version = 0.1
+dllReferences = LiveSplitInterop
+side = Client

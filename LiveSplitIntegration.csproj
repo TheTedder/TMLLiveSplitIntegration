@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<!-- Import tModLoader mod properties -->
 	<Import Project="..\tModLoader.targets" />
@@ -10,7 +10,20 @@
 
 	<!-- References -->
 	<ItemGroup>
-	  <Folder Include="Content\Items\" />
+	  <AdditionalFiles Remove="Content\**" />
+	  <Compile Remove="Content\**" />
+	  <EmbeddedResource Remove="Content\**" />
+	  <None Remove="Content\**" />
 	</ItemGroup>
 
+    <ItemGroup>
+        <PackageReference Include="LiveSplitInterop" Version="1.0.0" GeneratePathProperty="True" />
+    </ItemGroup>
+    
+    <Target Name="CopyDlls">
+        <ItemGroup>
+            <Source Include="$(PkgLiveSplitInterop)\lib\netstandard2.0\LiveSplitInterop.dll" />
+        </ItemGroup>
+        <Copy SourceFiles="@(Source)" DestinationFiles="$(ProjectDir)lib\LiveSplitInterop.dll" />
+    </Target>
 </Project>
