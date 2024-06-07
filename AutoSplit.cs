@@ -118,6 +118,21 @@ namespace LiveSplitIntegration
             {
                 Downed = () => NPC.downedMoonlord,
                 Enabled = config => config.MoonLord
+            },
+            new()
+            {
+                Downed = () => NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3,
+                Enabled = config => config.AllMechBosses
+            },
+            new()
+            {
+                Downed = () => NPC.downedTowerVortex && NPC.downedTowerStardust,
+                Enabled = config => config.FirstTwoPillars
+            },
+            new()
+            {
+                Downed = () => NPC.downedTowers,
+                Enabled = config => config.AllPillars
             }
         #endregion
         ];
