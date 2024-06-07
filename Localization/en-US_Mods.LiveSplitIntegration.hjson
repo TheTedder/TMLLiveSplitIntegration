@@ -4,7 +4,7 @@ Configs: {
 
 		Autostart: {
 			Label: Autostart
-			Tooltip: "Start the timer automatically upon entering a world."
+			Tooltip: Start the timer automatically upon entering a world.
 		}
 
 		Headers.Splits: Splits
@@ -21,7 +21,7 @@ Configs: {
 
 		Boss2: {
 			Label: Eater of Worlds/Brain of Cthulhu
-			Tooltip: "Split when either the Eater of Worlds or the Brain of Cthulhu is defeated."
+			Tooltip: Split when either the Eater of Worlds or the Brain of Cthulhu is defeated.
 		}
 
 		QueenBee: {
