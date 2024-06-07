@@ -1,1 +1,117 @@
+Configs: {
+	LiveSplitIntegrationConfig: {
+		DisplayName: LiveSplit Config
 
+		Autostart: {
+			Label: Autostart
+			Tooltip: "Start the timer automatically upon entering a world."
+		}
+
+		Headers.Splits: Splits
+
+		KingSlime: {
+			Label: King Slime
+			Tooltip: ""
+		}
+
+		EyeOfCthulhu: {
+			Label: Eye Of Cthulhu
+			Tooltip: ""
+		}
+
+		Boss2: {
+			Label: Eater of Worlds/Brain of Cthulhu
+			Tooltip: "Split when either the Eater of Worlds or the Brain of Cthulhu is defeated."
+		}
+
+		QueenBee: {
+			Label: Queen Bee
+			Tooltip: ""
+		}
+
+		Skeletron: {
+			Label: Skeletron
+			Tooltip: ""
+		}
+
+		Deerclops: {
+			Label: Deerclops
+			Tooltip: ""
+		}
+
+		WallOfFlesh: {
+			Label: Wall of Flesh
+			Tooltip: ""
+		}
+
+		QueenSlime: {
+			Label: Queen Slime
+			Tooltip: ""
+		}
+
+		Destroyer: {
+			Label: The Destroyer
+			Tooltip: ""
+		}
+
+		Twins: {
+			Label: The Twins
+			Tooltip: ""
+		}
+
+		SkeletronPrime: {
+			Label: Skeletron Prime
+			Tooltip: ""
+		}
+
+		Plantera: {
+			Label: Plantera
+			Tooltip: ""
+		}
+
+		Golem: {
+			Label: Golem
+			Tooltip: ""
+		}
+
+		DukeFishron: {
+			Label: Duke Fishron
+			Tooltip: ""
+		}
+
+		EmpressOfLight: {
+			Label: Empress Of Light
+			Tooltip: ""
+		}
+
+		LunaticCultist: {
+			Label: Lunatic Cultist
+			Tooltip: ""
+		}
+
+		NebulaPillar: {
+			Label: Nebula Pillar
+			Tooltip: ""
+		}
+
+		SolarPillar: {
+			Label: Solar Pillar
+			Tooltip: ""
+		}
+
+		StardustPillar: {
+			Label: Stardust Pillar
+			Tooltip: ""
+		}
+
+		VortexPillar: {
+			Label: Vortex Pillar
+			Tooltip: ""
+		}
+
+		MoonLord: {
+			Label: Moon Lord
+			Tooltip: ""
+		}
+	}
+}

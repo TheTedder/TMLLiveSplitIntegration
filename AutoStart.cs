@@ -12,7 +12,7 @@ namespace LiveSplitIntegration
     {
         public override void OnEnterWorld()
         {
-            LiveSplitIntegration.TrySendLsMsg(Client => Client.Start());
+            LiveSplitIntegration.TrySendLsMsg(client => client.Start());
         }
     }
 }
