@@ -1,1 +1,1 @@
-Modify this file with a description of your mod.
+Adds LiveSplit support to the game.
