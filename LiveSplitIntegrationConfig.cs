@@ -16,64 +16,64 @@ namespace LiveSplitIntegration
         public bool Autostart;
 
         [Header("Splits")]
-        [DefaultValue(true)]
+        [DefaultValue(false)]
         public bool KingSlime;
 
-        [DefaultValue(true)]
+        [DefaultValue(false)]
         public bool EyeOfCthulhu;
 
-        [DefaultValue(true)]
+        [DefaultValue(false)]
         public bool Boss2;
 
-        [DefaultValue(true)]
+        [DefaultValue(false)]
         public bool QueenBee;
 
         [DefaultValue(true)]
         public bool Skeletron;
 
-        [DefaultValue(true)]
+        [DefaultValue(false)]
         public bool Deerclops;
 
         [DefaultValue(true)]
         public bool WallOfFlesh;
         
-        [DefaultValue(true)]
+        [DefaultValue(false)]
         public bool QueenSlime;
 
         [DefaultValue(true)]
         public bool Destroyer;
 
-        [DefaultValue(true)]
+        [DefaultValue(false)]
         public bool Twins;
         
-        [DefaultValue(true)]
+        [DefaultValue(false)]
         public bool SkeletronPrime;
 
-        [DefaultValue(true)]
+        [DefaultValue(false)]
         public bool Plantera;
 
         [DefaultValue(true)]
         public bool Golem;
         
-        [DefaultValue(true)]
+        [DefaultValue(false)]
         public bool DukeFishron;
 
-        [DefaultValue(true)]
+        [DefaultValue(false)]
         public bool EmpressOfLight;
 
         [DefaultValue(true)]
         public bool LunaticCultist;
 
-        [DefaultValue(true)]
+        [DefaultValue(false)]
         public bool NebulaPillar;
 
-        [DefaultValue(true)]
+        [DefaultValue(false)]
         public bool SolarPillar;
 
-        [DefaultValue(true)]
+        [DefaultValue(false)]
         public bool StardustPillar;
 
-        [DefaultValue(true)]
+        [DefaultValue(false)]
         public bool VortexPillar;
 
         [DefaultValue(true)]
