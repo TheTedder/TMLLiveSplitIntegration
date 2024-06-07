@@ -116,17 +116,17 @@ Configs: {
 
 		AllMechBosses: {
 			Label: All Mech Bosses
-			Tooltip: "Split once every mech boss has been defeated."
+			Tooltip: Split once every mech boss has been defeated.
 		}
 
 		FirstTwoPillars: {
 			Label: First Two Pillars
-			Tooltip: "Split once the vortex and stardust pillars have been defeated."
+			Tooltip: Split once the vortex and stardust pillars have been defeated.
 		}
 
 		AllPillars: {
 			Label: All Pillars
-			Tooltip: "Split once all four pillars have been defeated."
+			Tooltip: Split once all four pillars have been defeated.
 		}
 	}
 }
