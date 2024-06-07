@@ -78,5 +78,14 @@ namespace LiveSplitIntegration
 
         [DefaultValue(true)]
         public bool MoonLord;
+
+        [DefaultValue(true)]
+        public bool AllMechBosses;
+
+        [DefaultValue(false)]
+        public bool FirstTwoPillars;
+
+        [DefaultValue(false)]
+        public bool AllPillars;
     }
 }
