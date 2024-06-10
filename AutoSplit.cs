@@ -11,6 +11,8 @@ namespace LiveSplitIntegration
 {
     public class AutoSplit : ModSystem
     {
+        private readonly LiveSplitIntegration mod = ModContent.GetInstance<LiveSplitIntegration>();
+
         private readonly BossStatus[] bosses =
         [
         #region bosses
@@ -141,7 +143,7 @@ namespace LiveSplitIntegration
         {
             if (bosses.Any(boss => boss.Update()))
             {
-                LiveSplitIntegration.TrySendLsMsg(client => client.Split());
+                mod.TrySendLsMsg(client => client.Split());
             }
         }
     }

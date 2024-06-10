@@ -12,11 +12,11 @@ namespace LiveSplitIntegration
 {
     public class LiveSplitIntegration : Mod
     {
-        private static NamedPipeCommandClient Client;
-        private static readonly object ClientLock = new();
-        private static CancellationTokenSource connectSource;
+        private NamedPipeCommandClient Client;
+        private object ClientLock;
+        private CancellationTokenSource connectSource;
 
-        private static async Task Connect()
+        private async Task Connect()
         {
             Client = new();
             await Client.ConnectAsync(connectSource.Token);
@@ -24,6 +24,7 @@ namespace LiveSplitIntegration
 
         public override void Load()
         {
+            ClientLock = new();
             connectSource = new();
             Task.Run(Connect);
         }
@@ -35,7 +36,7 @@ namespace LiveSplitIntegration
             Client?.Dispose();
         }
 
-        internal static bool TrySendLsMsg(Action<NamedPipeCommandClient> msgAction)
+        internal bool TrySendLsMsg(Action<NamedPipeCommandClient> msgAction)
         {
             lock (ClientLock)
             {
@@ -68,7 +69,7 @@ namespace LiveSplitIntegration
             }
         }
 
-        internal static bool TrySendLsMsg<T>(Func<NamedPipeCommandClient, T> msgAction, out T res)
+        internal bool TrySendLsMsg<T>(Func<NamedPipeCommandClient, T> msgAction, out T res)
         {
             lock (ClientLock)
             {
