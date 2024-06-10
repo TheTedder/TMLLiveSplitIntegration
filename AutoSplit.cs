@@ -139,9 +139,7 @@ namespace LiveSplitIntegration
 
         public override void PostUpdateNPCs()
         {
-            LiveSplitIntegrationConfig config = ModContent.GetInstance<LiveSplitIntegrationConfig>();
-
-            if (bosses.Any(boss => boss.Update(config)))
+            if (bosses.Any(boss => boss.Update()))
             {
                 LiveSplitIntegration.TrySendLsMsg(client => client.Split());
             }
