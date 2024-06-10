@@ -11,7 +11,7 @@ namespace LiveSplitIntegration
 {
     public class AutoSplit : ModSystem
     {
-        private static readonly BossStatus[] bosses =
+        private readonly BossStatus[] bosses =
         [
         #region bosses
             new()
