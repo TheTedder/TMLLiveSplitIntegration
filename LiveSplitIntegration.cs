@@ -1,3 +1,4 @@
+using LiveSplitInterop;
 using LiveSplitInterop.Clients;
 using System;
 using System.Collections.Generic;
@@ -59,7 +60,7 @@ namespace LiveSplitIntegration
         /// <returns>
         /// A <see cref="bool"/> indicating whether or not <paramref name="msgAction"/> completed successfully.
         /// </returns>
-        internal bool TrySendLsMsg(Action<NamedPipeCommandClient> msgAction)
+        internal bool TrySendLsMsg(Action<ILiveSplitCommandClient> msgAction)
         {
             lock (ClientLock)
             {
@@ -101,8 +102,8 @@ namespace LiveSplitIntegration
         /// <param name="res">
         /// The returned data. In case of failure, this value will be invalid.
         /// </param>
-        /// <inheritdoc cref="TrySendLsMsg(Action{NamedPipeCommandClient})"/>
-        internal bool TrySendLsMsg<T>(Func<NamedPipeCommandClient, T> msgAction, out T res)
+        /// <inheritdoc cref="TrySendLsMsg(Action{ILiveSplitCommandClient})"/>
+        internal bool TrySendLsMsg<T>(Func<ILiveSplitCommandClient, T> msgAction, out T res)
         {
             lock (ClientLock)
             {
