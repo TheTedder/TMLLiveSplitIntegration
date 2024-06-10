@@ -11,127 +11,129 @@ namespace LiveSplitIntegration
 {
     public class AutoSplit : ModSystem
     {
-        private static readonly BossStatus[] bosses =
+        private readonly LiveSplitIntegration mod = ModContent.GetInstance<LiveSplitIntegration>();
+
+        private readonly BossStatus[] bosses =
         [
         #region bosses
             new()
             {
-                Downed = () => NPC.downedSlimeKing,
+                IsDowned = () => NPC.downedSlimeKing,
                 Enabled = config => config.KingSlime
             },
             new()
             {
-                Downed = () => NPC.downedBoss1,
+                IsDowned = () => NPC.downedBoss1,
                 Enabled = config => config.EyeOfCthulhu
             },
             new()
             {
-                Downed = () => NPC.downedBoss2,
+                IsDowned = () => NPC.downedBoss2,
                 Enabled = config => config.Boss2
             },
             new()
             {
-                Downed = () => NPC.downedQueenBee,
+                IsDowned = () => NPC.downedQueenBee,
                 Enabled = config => config.QueenBee
             },
             new()
             {
-                Downed = () => NPC.downedBoss3,
+                IsDowned = () => NPC.downedBoss3,
                 Enabled = config => config.Skeletron
             },
             new()
             {
-                Downed = () => NPC.downedDeerclops,
+                IsDowned = () => NPC.downedDeerclops,
                 Enabled = config => config.Deerclops
             },
             new()
             {
-                Downed = () => Main.hardMode,
+                IsDowned = () => Main.hardMode,
                 Enabled = config => config.WallOfFlesh
             },
             new()
             {
-                Downed = () => NPC.downedQueenSlime,
+                IsDowned = () => NPC.downedQueenSlime,
                 Enabled = config => config.QueenSlime
             },
             new()
             {
-                Downed = () => NPC.downedMechBoss1,
+                IsDowned = () => NPC.downedMechBoss1,
                 Enabled = config => config.Destroyer
             },
             new()
             {
-                Downed = () => NPC.downedMechBoss2,
+                IsDowned = () => NPC.downedMechBoss2,
                 Enabled = config => config.Twins
             },
             new()
             {
-                Downed = () => NPC.downedMechBoss3,
+                IsDowned = () => NPC.downedMechBoss3,
                 Enabled = config => config.SkeletronPrime
             },
             new()
             {
-                Downed = () => NPC.downedPlantBoss,
+                IsDowned = () => NPC.downedPlantBoss,
                 Enabled = config => config.Plantera
             },
             new()
             {
-                Downed = () => NPC.downedGolemBoss,
+                IsDowned = () => NPC.downedGolemBoss,
                 Enabled = config => config.Golem
             },
             new()
             {
-                Downed = () => NPC.downedFishron,
+                IsDowned = () => NPC.downedFishron,
                 Enabled = config => config.DukeFishron
             },
             new()
             {
-                Downed = () => NPC.downedEmpressOfLight,
+                IsDowned = () => NPC.downedEmpressOfLight,
                 Enabled = config => config.EmpressOfLight
             },
             new()
             {
-                Downed = () => NPC.downedAncientCultist,
+                IsDowned = () => NPC.downedAncientCultist,
                 Enabled = config => config.LunaticCultist
             },
             new()
             {
-                Downed = () => NPC.downedTowerNebula,
+                IsDowned = () => NPC.downedTowerNebula,
                 Enabled = config => config.NebulaPillar
             },
             new()
             {
-                Downed = () => NPC.downedTowerSolar,
+                IsDowned = () => NPC.downedTowerSolar,
                 Enabled = config => config.SolarPillar
             },
             new()
             {
-                Downed = () => NPC.downedTowerStardust,
+                IsDowned = () => NPC.downedTowerStardust,
                 Enabled = config => config.StardustPillar
             },
             new()
             {
-                Downed = () => NPC.downedTowerVortex,
+                IsDowned = () => NPC.downedTowerVortex,
                 Enabled = config => config.VortexPillar
             },
             new()
             {
-                Downed = () => NPC.downedMoonlord,
+                IsDowned = () => NPC.downedMoonlord,
                 Enabled = config => config.MoonLord
             },
             new()
             {
-                Downed = () => NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3,
+                IsDowned = () => NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3,
                 Enabled = config => config.AllMechBosses
             },
             new()
             {
-                Downed = () => NPC.downedTowerVortex && NPC.downedTowerStardust,
+                IsDowned = () => NPC.downedTowerVortex && NPC.downedTowerStardust,
                 Enabled = config => config.FirstTwoPillars
             },
             new()
             {
-                Downed = () => NPC.downedTowers,
+                IsDowned = () => NPC.downedTowers,
                 Enabled = config => config.AllPillars
             }
         #endregion
@@ -139,11 +141,9 @@ namespace LiveSplitIntegration
 
         public override void PostUpdateNPCs()
         {
-            LiveSplitIntegrationConfig config = ModContent.GetInstance<LiveSplitIntegrationConfig>();
-
-            if (bosses.Any(boss => boss.Update(config)))
+            if (bosses.Any(boss => boss.Update()))
             {
-                LiveSplitIntegration.TrySendLsMsg(client => client.Split());
+                mod.TrySendLsMsg(client => client.Split());
             }
         }
     }

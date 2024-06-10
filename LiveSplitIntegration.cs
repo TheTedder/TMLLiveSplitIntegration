@@ -1,3 +1,4 @@
+using LiveSplitInterop;
 using LiveSplitInterop.Clients;
 using System;
 using System.Collections.Generic;
@@ -10,14 +11,27 @@ using Terraria.ModLoader;
 
 namespace LiveSplitIntegration
 {
-    // Please read https://github.com/tModLoader/tModLoader/wiki/Basic-tModLoader-Modding-Guide#mod-skeleton-contents for more information about the various files in a mod.
     public class LiveSplitIntegration : Mod
     {
-        private static NamedPipeCommandClient Client;
-        private static readonly object ClientLock = new();
-        private static CancellationTokenSource connectSource;
+        /// <summary>
+        /// The client that communicates with LiveSplit.
+        /// </summary>
+        private NamedPipeCommandClient Client;
+        
+        /// <summary>
+        /// A lock to prevent multiple threads from using <see cref="Client"/> simultaneously.
+        /// </summary>
+        private object ClientLock;
 
-        private static async Task Connect()
+        /// <summary>
+        /// A <see cref="CancellationTokenSource"/> used to stop pending connections when unloading the mod.
+        /// </summary>
+        private CancellationTokenSource connectSource;
+
+        /// <summary>
+        /// Connect to LiveSplit asynchronously. Cancel <see cref="connectSource"/> to stop the operation.
+        /// </summary>
+        private async Task Connect()
         {
             Client = new();
             await Client.ConnectAsync(connectSource.Token);
@@ -25,6 +39,7 @@ namespace LiveSplitIntegration
 
         public override void Load()
         {
+            ClientLock = new();
             connectSource = new();
             Task.Run(Connect);
         }
@@ -36,7 +51,16 @@ namespace LiveSplitIntegration
             Client?.Dispose();
         }
 
-        internal static bool TrySendLsMsg(Action<NamedPipeCommandClient> msgAction)
+        /// <summary>
+        /// Attempt to send one or more messages to LiveSplit.
+        /// </summary>
+        /// <param name="msgAction">
+        /// The action to perform with the LiveSplit client.
+        /// </param>
+        /// <returns>
+        /// A <see cref="bool"/> indicating whether or not <paramref name="msgAction"/> completed successfully.
+        /// </returns>
+        internal bool TrySendLsMsg(Action<ILiveSplitCommandClient> msgAction)
         {
             lock (ClientLock)
             {
@@ -69,7 +93,17 @@ namespace LiveSplitIntegration
             }
         }
 
-        internal static bool TrySendLsMsg<T>(Func<NamedPipeCommandClient, T> msgAction, out T res)
+        /// <summary>
+        /// Attempt to send one or more messages to LiveSplit, at least one of which returns a value.
+        /// </summary>
+        /// <typeparam name="T">
+        /// The type of data returned.
+        /// </typeparam>
+        /// <param name="res">
+        /// The returned data. In case of failure, this value will be invalid.
+        /// </param>
+        /// <inheritdoc cref="TrySendLsMsg(Action{ILiveSplitCommandClient})"/>
+        internal bool TrySendLsMsg<T>(Func<ILiveSplitCommandClient, T> msgAction, out T res)
         {
             lock (ClientLock)
             {
