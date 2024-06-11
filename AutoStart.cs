@@ -11,10 +11,14 @@ namespace LiveSplitIntegration
     public class AutoStart : ModPlayer
     {
         private readonly LiveSplitIntegration mod = ModContent.GetInstance<LiveSplitIntegration>();
+        private readonly LiveSplitIntegrationConfig config = ModContent.GetInstance<LiveSplitIntegrationConfig>();
 
         public override void OnEnterWorld()
         {
-            mod.TrySendLsMsg(client => client.Start());
+            if (config.Autostart)
+            {
+                mod.TrySendLsMsg(client => client.Start());
+            }
         }
     }
 }
