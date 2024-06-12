@@ -1,0 +1,1 @@
+Adds LiveSplit support to the game. For source code and more, visit https://github.com/TheTedder/TMLLiveSplitIntegration.

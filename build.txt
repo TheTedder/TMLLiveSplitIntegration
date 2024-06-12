@@ -3,3 +3,5 @@ author = Tedder
 version = 0.1
 dllReferences = LiveSplitInterop
 side = Client
+homepage = https://github.com/TheTedder/TMLLiveSplitIntegration
+buildIgnore = *.sh, *.cmd
