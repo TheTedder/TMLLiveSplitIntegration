@@ -8,7 +8,7 @@ To compile this mod, you need:
 * [tModLoader](https://tmodloader.net/)
 * [msbuild](https://visualstudio.microsoft.com/) (or the [dotnet SDK](https://dotnet.microsoft.com/en-us/))
 
-If you are using Visual Studio, make sure you have the .NET desktop development workload installed. You should have the NuGet targets and build tasks component installed. You have to own Terraria on Steam if you intend to fork this project and then publish your version to the Steam Workshop.
+If you are using Visual Studio, make sure you have the .NET desktop development workload installed. You should have the ".NET 8.0 Runtime", "C# and Visual Basic", "MSBuild", "NuGet package manager", and "NuGet targets and build tasks" component installed. You have to own Terraria on Steam if you intend to fork this project and then publish your version to the Steam Workshop.
 ### Build Process
 1. Clone the repository into your mod sources folder. Yes, it has to be in this folder for this to work. Make sure the files in the repository are themselves inside of a folder and not direct children of the ModSources folder.
 	* On **Windows**, this folder is located at the following location, relative to your Documents folder: `My Games\Terraria\tModLoader\ModSources\`.
