@@ -18,3 +18,5 @@ If you are using Visual Studio, make sure you have the .NET desktop development 
 	* If you are using **Visual Studio**, this is accomplished by opening the Developer Command Prompt (in the Tools > Command Line menu) and running the following command: `call setup_msbuild.cmd`.
 	* If you are using the **dotnet CLI**, run either `setup_dotnet.cmd` or `setup.sh` depending on your operating system.
 3. Launch tModLoader, navigate to the Workshop menu and click "Develop Mods." You should see LiveSplitIntegration listed, as well as any other mods you are developing. Click the "Build" or the "Build + Reload" button depending on your needs. If you get a message about a missing dependency, step 2 failed.
+## Acknowledgments
+Thanks to EvenOrOdds for commissioning this project.
