@@ -1,5 +1,5 @@
 # TML LiveSplit Integration
-This is a mod for Terraria that allows for integration with [LiveSplit](https://livesplit.org). This is achieved through use of the [LiveSplitInterop](https://www.nuget.org/packages/LiveSplitInterop) library. To use the mod, subscribe to it on the Steam Workshop page. Alternatively, use the in-game mod browser to install it. Go to the in-game configuration menu ("LiveSplit Config") and select whether you want the timer to start automatically or not and which bosses or boss groups should trigger a split upon defeat.
+This is a mod for Terraria that allows for integration with [LiveSplit](https://livesplit.org). This is achieved through use of the [LiveSplitInterop](https://www.nuget.org/packages/LiveSplitInterop) library. To use the mod, subscribe to it on the [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3266597236). Alternatively, use the in-game mod browser to install it. Go to the in-game configuration menu ("LiveSplit Config") and select whether you want the timer to start automatically or not and which bosses or boss groups should trigger a split upon defeat.
 ## How to Build
 Unfortunately, TML's build system is a bit wack, so you'll have to jump through some hoops to get this mod to compile correctly.
 ### Prerequisites
